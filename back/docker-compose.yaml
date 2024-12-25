@@ -1,0 +1,23 @@
+version: 3.8
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.scrath
+    ports:
+      - '8081:8081'
+    depends_on: 
+      - 'mongo'
+    networks:
+      - work-network
+  mongo:
+    image: 'mongo:latest'
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/dev/mongo:/data/db
+    networks:
+      - work-network
+
+networks:
+  work-network:
+    driver: bridge

@@ -13,7 +13,7 @@ var Client *mongo.Client
 // Connect initializes MongoDB connection
 func Connect() {
 	var err error
-	Client, err = mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017"))
+	Client, err = mongo.Connect(options.Client().ApplyURI("mongodb://mongo:27017"))
 	if err != nil {
 		log.Fatal(err)
 	}
